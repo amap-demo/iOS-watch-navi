@@ -1,0 +1,956 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1621A104399FAABF58763DA4 /* libPods-WatchDemoNavi WatchKit Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3161E4530F537AA15984EB02 /* libPods-WatchDemoNavi WatchKit Extension.a */; };
+		3A21970C1C508E5C00E9B841 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A21970B1C508E5C00E9B841 /* libc++.tbd */; };
+		3A21970D1C508EB100E9B841 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A21970B1C508E5C00E9B841 /* libc++.tbd */; };
+		3A28E48F1B2AC265006BF079 /* HUDInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A28E48E1B2AC265006BF079 /* HUDInterfaceController.m */; };
+		3A28E4921B2AC274006BF079 /* GuideInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A28E4911B2AC274006BF079 /* GuideInterfaceController.m */; };
+		3A29CDBD1D015A56002A7B2E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACCE75C1D0133FC00386BE6 /* SystemConfiguration.framework */; };
+		3A29CDBE1D015A60002A7B2E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACCE75E1D01341A00386BE6 /* CoreTelephony.framework */; };
+		3A4D5CE01B2ECAC2007A1B78 /* GuideTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D5CDF1B2ECAC2007A1B78 /* GuideTableRow.m */; };
+		3A53F3491B3143510069F9A7 /* FileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53F3481B3143510069F9A7 /* FileTransiting.m */; };
+		3A53F34A1B3143510069F9A7 /* FileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53F3481B3143510069F9A7 /* FileTransiting.m */; };
+		3A5710CC1B2A7AC600658535 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5710CB1B2A7AC600658535 /* main.m */; };
+		3A5710CF1B2A7AC600658535 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5710CE1B2A7AC600658535 /* AppDelegate.m */; };
+		3A5710DA1B2A7AC600658535 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5710D81B2A7AC600658535 /* LaunchScreen.xib */; };
+		3A5710F71B2A7B6000658535 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5710F31B2A7B6000658535 /* ViewController.m */; };
+		3A5711101B2A7BA300658535 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A57110F1B2A7BA300658535 /* AudioToolbox.framework */; };
+		3A5711121B2A7BA800658535 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5711111B2A7BA800658535 /* AVFoundation.framework */; };
+		3A5711141B2A7BAC00658535 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5711131B2A7BAC00658535 /* AddressBook.framework */; };
+		3A5711241B2A7C7000658535 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5711231B2A7C7000658535 /* InterfaceController.m */; };
+		3A5711271B2A7C7000658535 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5711261B2A7C7000658535 /* NotificationController.m */; };
+		3A57112C1B2A7C7000658535 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A57112B1B2A7C7000658535 /* Images.xcassets */; };
+		3A5711301B2A7C7000658535 /* WatchDemoNavi WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 3A57112F1B2A7C7000658535 /* WatchDemoNavi WatchKit App.app */; };
+		3A5711381B2A7C7000658535 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5711361B2A7C7000658535 /* Interface.storyboard */; };
+		3A57113A1B2A7C7000658535 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5711391B2A7C7000658535 /* Images.xcassets */; };
+		3A57113D1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3A57111D1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3A5D734B1B2FDB42005CA5E2 /* TrafficStatusCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D734A1B2FDB42005CA5E2 /* TrafficStatusCircle.m */; };
+		3A5D734C1B2FDB42005CA5E2 /* TrafficStatusCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D734A1B2FDB42005CA5E2 /* TrafficStatusCircle.m */; };
+		3A5D734F1B301CA0005CA5E2 /* RouteTrafficInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D734E1B301CA0005CA5E2 /* RouteTrafficInterfaceController.m */; };
+		3A7CA9CB1B2A8BB900DB324A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CA9C61B2A8BB900DB324A /* MMWormhole.m */; };
+		3A7CA9CC1B2A8BB900DB324A /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CA9C61B2A8BB900DB324A /* MMWormhole.m */; };
+		3A7CA9CF1B2A8BB900DB324A /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CA9CA1B2A8BB900DB324A /* MMWormholeFileTransiting.m */; };
+		3A7CA9D01B2A8BB900DB324A /* MMWormholeFileTransiting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CA9CA1B2A8BB900DB324A /* MMWormholeFileTransiting.m */; };
+		3A8320241BEB3A300016BFAB /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8320231BEB3A300016BFAB /* libstdc++.6.0.9.tbd */; };
+		3A8320261BEB3A350016BFAB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8320251BEB3A350016BFAB /* libz.tbd */; };
+		3A8320A11BEB44360016BFAB /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8320231BEB3A300016BFAB /* libstdc++.6.0.9.tbd */; };
+		3A8320A21BEB443A0016BFAB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8320251BEB3A350016BFAB /* libz.tbd */; };
+		3AA783A51B412BBC00ED3FCF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA7839E1B412BBC00ED3FCF /* Default-568h@2x.png */; };
+		3AA783A61B412BBC00ED3FCF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA7839F1B412BBC00ED3FCF /* Default.png */; };
+		3AA783A71B412BBC00ED3FCF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA783A01B412BBC00ED3FCF /* Default@2x.png */; };
+		3AA783A81B412BBC00ED3FCF /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA783A11B412BBC00ED3FCF /* icon-72.png */; };
+		3AA783A91B412BBC00ED3FCF /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA783A21B412BBC00ED3FCF /* icon-72@2x.png */; };
+		3AA783AA1B412BBC00ED3FCF /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA783A31B412BBC00ED3FCF /* icon.png */; };
+		3AA783AB1B412BBC00ED3FCF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA783A41B412BBC00ED3FCF /* icon@2x.png */; };
+		3AA783B61B412DDE00ED3FCF /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA783B41B412DDE00ED3FCF /* icon-40.png */; };
+		3AA783B71B412DDE00ED3FCF /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA783B51B412DDE00ED3FCF /* icon-40@2x.png */; };
+		3ACCE75B1D012C2500386BE6 /* SpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACCE75A1D012C2500386BE6 /* SpeechSynthesizer.m */; };
+		3ACCE75D1D0133FC00386BE6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACCE75C1D0133FC00386BE6 /* SystemConfiguration.framework */; };
+		3ACCE75F1D01341A00386BE6 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACCE75E1D01341A00386BE6 /* CoreTelephony.framework */; };
+		F0F566847A610063248FA144 /* libPods-WatchDemoNavi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0276B05B23E295BB5EB10EAA /* libPods-WatchDemoNavi.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A5711311B2A7C7000658535 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A5710BE1B2A7AC600658535 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A57112E1B2A7C7000658535;
+			remoteInfo = "WatchDemoNavi WatchKit App";
+		};
+		3A57113B1B2A7C7000658535 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A5710BE1B2A7AC600658535 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A57111C1B2A7C7000658535;
+			remoteInfo = "WatchDemoNavi WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3A5711441B2A7C7000658535 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3A57113D1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0276B05B23E295BB5EB10EAA /* libPods-WatchDemoNavi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WatchDemoNavi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3161E4530F537AA15984EB02 /* libPods-WatchDemoNavi WatchKit Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WatchDemoNavi WatchKit Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A21970B1C508E5C00E9B841 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		3A28E48D1B2AC265006BF079 /* HUDInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDInterfaceController.h; sourceTree = "<group>"; };
+		3A28E48E1B2AC265006BF079 /* HUDInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDInterfaceController.m; sourceTree = "<group>"; };
+		3A28E4901B2AC274006BF079 /* GuideInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideInterfaceController.h; sourceTree = "<group>"; };
+		3A28E4911B2AC274006BF079 /* GuideInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideInterfaceController.m; sourceTree = "<group>"; };
+		3A491FB31B2AD3EE00A5140F /* CommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
+		3A4D5CDE1B2ECAC2007A1B78 /* GuideTableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideTableRow.h; sourceTree = "<group>"; };
+		3A4D5CDF1B2ECAC2007A1B78 /* GuideTableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideTableRow.m; sourceTree = "<group>"; };
+		3A53F3471B3143510069F9A7 /* FileTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransiting.h; sourceTree = "<group>"; };
+		3A53F3481B3143510069F9A7 /* FileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTransiting.m; sourceTree = "<group>"; };
+		3A5710C61B2A7AC600658535 /* WatchDemoNavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchDemoNavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5710CA1B2A7AC600658535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5710CB1B2A7AC600658535 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A5710CD1B2A7AC600658535 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3A5710CE1B2A7AC600658535 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3A5710D91B2A7AC600658535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3A5710F01B2A7B6000658535 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
+		3A5710F21B2A7B6000658535 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3A5710F31B2A7B6000658535 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3A57110F1B2A7BA300658535 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3A5711111B2A7BA800658535 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3A5711131B2A7BAC00658535 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3A57111D1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchDemoNavi WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5711201B2A7C7000658535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5711211B2A7C7000658535 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		3A5711221B2A7C7000658535 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		3A5711231B2A7C7000658535 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		3A5711251B2A7C7000658535 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		3A5711261B2A7C7000658535 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		3A57112B1B2A7C7000658535 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A57112F1B2A7C7000658535 /* WatchDemoNavi WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchDemoNavi WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5711351B2A7C7000658535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5711371B2A7C7000658535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3A5711391B2A7C7000658535 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A5711461B2A7FE600658535 /* WatchDemoNavi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchDemoNavi.entitlements; sourceTree = "<group>"; };
+		3A5D73491B2FDB42005CA5E2 /* TrafficStatusCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficStatusCircle.h; sourceTree = "<group>"; };
+		3A5D734A1B2FDB42005CA5E2 /* TrafficStatusCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficStatusCircle.m; sourceTree = "<group>"; };
+		3A5D734D1B301CA0005CA5E2 /* RouteTrafficInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteTrafficInterfaceController.h; sourceTree = "<group>"; };
+		3A5D734E1B301CA0005CA5E2 /* RouteTrafficInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteTrafficInterfaceController.m; sourceTree = "<group>"; };
+		3A7CA9C31B2A8AAD00DB324A /* WatchDemoNavi WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchDemoNavi WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		3A7CA9C51B2A8BB900DB324A /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
+		3A7CA9C61B2A8BB900DB324A /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
+		3A7CA9C91B2A8BB900DB324A /* MMWormholeFileTransiting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormholeFileTransiting.h; sourceTree = "<group>"; };
+		3A7CA9CA1B2A8BB900DB324A /* MMWormholeFileTransiting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormholeFileTransiting.m; sourceTree = "<group>"; };
+		3A8320231BEB3A300016BFAB /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		3A8320251BEB3A350016BFAB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3AA7839E1B412BBC00ED3FCF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3AA7839F1B412BBC00ED3FCF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3AA783A01B412BBC00ED3FCF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3AA783A11B412BBC00ED3FCF /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
+		3AA783A21B412BBC00ED3FCF /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
+		3AA783A31B412BBC00ED3FCF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		3AA783A41B412BBC00ED3FCF /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		3AA783B41B412DDE00ED3FCF /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
+		3AA783B51B412DDE00ED3FCF /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
+		3ACCE7591D012C2500386BE6 /* SpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechSynthesizer.h; sourceTree = "<group>"; };
+		3ACCE75A1D012C2500386BE6 /* SpeechSynthesizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechSynthesizer.m; sourceTree = "<group>"; };
+		3ACCE75C1D0133FC00386BE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3ACCE75E1D01341A00386BE6 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3ACCE7651D013DF200386BE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3ACCE7671D013EDD00386BE6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3C2C17540BC5691A0FB9FD93 /* Pods-WatchDemoNavi WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchDemoNavi WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchDemoNavi WatchKit Extension/Pods-WatchDemoNavi WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		B8713E4D08FBCF237B1B0245 /* Pods-WatchDemoNavi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchDemoNavi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchDemoNavi/Pods-WatchDemoNavi.debug.xcconfig"; sourceTree = "<group>"; };
+		BA039F5B917C040360F9266E /* Pods-WatchDemoNavi WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchDemoNavi WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchDemoNavi WatchKit Extension/Pods-WatchDemoNavi WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		D7D514E6EC3E65945E9BEED1 /* Pods-WatchDemoNavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchDemoNavi.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchDemoNavi/Pods-WatchDemoNavi.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A5710C31B2A7AC600658535 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A21970C1C508E5C00E9B841 /* libc++.tbd in Frameworks */,
+				3A8320261BEB3A350016BFAB /* libz.tbd in Frameworks */,
+				3A8320241BEB3A300016BFAB /* libstdc++.6.0.9.tbd in Frameworks */,
+				3A5711141B2A7BAC00658535 /* AddressBook.framework in Frameworks */,
+				3A5711121B2A7BA800658535 /* AVFoundation.framework in Frameworks */,
+				3A5711101B2A7BA300658535 /* AudioToolbox.framework in Frameworks */,
+				3ACCE75F1D01341A00386BE6 /* CoreTelephony.framework in Frameworks */,
+				3ACCE75D1D0133FC00386BE6 /* SystemConfiguration.framework in Frameworks */,
+				F0F566847A610063248FA144 /* libPods-WatchDemoNavi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A57111A1B2A7C7000658535 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A29CDBE1D015A60002A7B2E /* CoreTelephony.framework in Frameworks */,
+				3A29CDBD1D015A56002A7B2E /* SystemConfiguration.framework in Frameworks */,
+				3A21970D1C508EB100E9B841 /* libc++.tbd in Frameworks */,
+				3A8320A21BEB443A0016BFAB /* libz.tbd in Frameworks */,
+				3A8320A11BEB44360016BFAB /* libstdc++.6.0.9.tbd in Frameworks */,
+				1621A104399FAABF58763DA4 /* libPods-WatchDemoNavi WatchKit Extension.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		652D26C6D322F139019FB076 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A28E4931B2AC284006BF079 /* InterfaceController */ = {
+			isa = PBXGroup;
+			children = (
+				3A5711221B2A7C7000658535 /* InterfaceController.h */,
+				3A5711231B2A7C7000658535 /* InterfaceController.m */,
+				3A28E48D1B2AC265006BF079 /* HUDInterfaceController.h */,
+				3A28E48E1B2AC265006BF079 /* HUDInterfaceController.m */,
+				3A28E4901B2AC274006BF079 /* GuideInterfaceController.h */,
+				3A28E4911B2AC274006BF079 /* GuideInterfaceController.m */,
+				3A4D5CDE1B2ECAC2007A1B78 /* GuideTableRow.h */,
+				3A4D5CDF1B2ECAC2007A1B78 /* GuideTableRow.m */,
+				3A5D734D1B301CA0005CA5E2 /* RouteTrafficInterfaceController.h */,
+				3A5D734E1B301CA0005CA5E2 /* RouteTrafficInterfaceController.m */,
+			);
+			name = InterfaceController;
+			sourceTree = "<group>";
+		};
+		3A5710BD1B2A7AC600658535 = {
+			isa = PBXGroup;
+			children = (
+				3A5710C81B2A7AC600658535 /* WatchDemoNavi */,
+				3A57111E1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension */,
+				3A5711331B2A7C7000658535 /* WatchDemoNavi WatchKit App */,
+				3A5710C71B2A7AC600658535 /* Products */,
+				79F57BD0B69EFEE956FA762A /* Pods */,
+				52559BF7717D35849C6DDF55 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3A5710C71B2A7AC600658535 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A5710C61B2A7AC600658535 /* WatchDemoNavi.app */,
+				3A57111D1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension.appex */,
+				3A57112F1B2A7C7000658535 /* WatchDemoNavi WatchKit App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A5710C81B2A7AC600658535 /* WatchDemoNavi */ = {
+			isa = PBXGroup;
+			children = (
+				3A5711461B2A7FE600658535 /* WatchDemoNavi.entitlements */,
+				3A5710CD1B2A7AC600658535 /* AppDelegate.h */,
+				3A5710CE1B2A7AC600658535 /* AppDelegate.m */,
+				3A5710F11B2A7B6000658535 /* Controllers */,
+				3A5710F41B2A7B6000658535 /* Model */,
+				3A7CA9C41B2A8BB900DB324A /* MMWormhole */,
+				3ACCE7581D012C2500386BE6 /* SpeechSynthesizer */,
+				3A5710EF1B2A7B6000658535 /* Configuration */,
+				3A5710D81B2A7AC600658535 /* LaunchScreen.xib */,
+				3A5710C91B2A7AC600658535 /* Supporting Files */,
+			);
+			path = WatchDemoNavi;
+			sourceTree = "<group>";
+		};
+		3A5710C91B2A7AC600658535 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A8320251BEB3A350016BFAB /* libz.tbd */,
+				3A21970B1C508E5C00E9B841 /* libc++.tbd */,
+				3A8320231BEB3A300016BFAB /* libstdc++.6.0.9.tbd */,
+				3ACCE7671D013EDD00386BE6 /* CoreData.framework */,
+				3ACCE7651D013DF200386BE6 /* Foundation.framework */,
+				3ACCE75E1D01341A00386BE6 /* CoreTelephony.framework */,
+				3ACCE75C1D0133FC00386BE6 /* SystemConfiguration.framework */,
+				3A5711131B2A7BAC00658535 /* AddressBook.framework */,
+				3A5711111B2A7BA800658535 /* AVFoundation.framework */,
+				3A57110F1B2A7BA300658535 /* AudioToolbox.framework */,
+				3AA7839E1B412BBC00ED3FCF /* Default-568h@2x.png */,
+				3AA7839F1B412BBC00ED3FCF /* Default.png */,
+				3AA783A01B412BBC00ED3FCF /* Default@2x.png */,
+				3AA783A11B412BBC00ED3FCF /* icon-72.png */,
+				3AA783A21B412BBC00ED3FCF /* icon-72@2x.png */,
+				3AA783A31B412BBC00ED3FCF /* icon.png */,
+				3AA783A41B412BBC00ED3FCF /* icon@2x.png */,
+				3A5710CA1B2A7AC600658535 /* Info.plist */,
+				3A5710CB1B2A7AC600658535 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A5710EF1B2A7B6000658535 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				3A5710F01B2A7B6000658535 /* APIKey.h */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		3A5710F11B2A7B6000658535 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A5710F21B2A7B6000658535 /* ViewController.h */,
+				3A5710F31B2A7B6000658535 /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3A5710F41B2A7B6000658535 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A491FB31B2AD3EE00A5140F /* CommonDefine.h */,
+				3A5D73491B2FDB42005CA5E2 /* TrafficStatusCircle.h */,
+				3A5D734A1B2FDB42005CA5E2 /* TrafficStatusCircle.m */,
+				3A53F3471B3143510069F9A7 /* FileTransiting.h */,
+				3A53F3481B3143510069F9A7 /* FileTransiting.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A57111E1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3A7CA9C31B2A8AAD00DB324A /* WatchDemoNavi WatchKit Extension.entitlements */,
+				3A28E4931B2AC284006BF079 /* InterfaceController */,
+				3A5711251B2A7C7000658535 /* NotificationController.h */,
+				3A5711261B2A7C7000658535 /* NotificationController.m */,
+				3A57112B1B2A7C7000658535 /* Images.xcassets */,
+				3A57111F1B2A7C7000658535 /* Supporting Files */,
+			);
+			path = "WatchDemoNavi WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		3A57111F1B2A7C7000658535 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A5711201B2A7C7000658535 /* Info.plist */,
+				3A5711211B2A7C7000658535 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A5711331B2A7C7000658535 /* WatchDemoNavi WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				3A5711361B2A7C7000658535 /* Interface.storyboard */,
+				3A5711391B2A7C7000658535 /* Images.xcassets */,
+				3A5711341B2A7C7000658535 /* Supporting Files */,
+			);
+			path = "WatchDemoNavi WatchKit App";
+			sourceTree = "<group>";
+		};
+		3A5711341B2A7C7000658535 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3AA783B41B412DDE00ED3FCF /* icon-40.png */,
+				3AA783B51B412DDE00ED3FCF /* icon-40@2x.png */,
+				3A5711351B2A7C7000658535 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A7CA9C41B2A8BB900DB324A /* MMWormhole */ = {
+			isa = PBXGroup;
+			children = (
+				3A7CA9C51B2A8BB900DB324A /* MMWormhole.h */,
+				3A7CA9C61B2A8BB900DB324A /* MMWormhole.m */,
+				3A7CA9C91B2A8BB900DB324A /* MMWormholeFileTransiting.h */,
+				3A7CA9CA1B2A8BB900DB324A /* MMWormholeFileTransiting.m */,
+			);
+			name = MMWormhole;
+			path = WatchDemoNavi/MMWormhole;
+			sourceTree = SOURCE_ROOT;
+		};
+		3ACCE7581D012C2500386BE6 /* SpeechSynthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				3ACCE7591D012C2500386BE6 /* SpeechSynthesizer.h */,
+				3ACCE75A1D012C2500386BE6 /* SpeechSynthesizer.m */,
+			);
+			path = SpeechSynthesizer;
+			sourceTree = "<group>";
+		};
+		52559BF7717D35849C6DDF55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0276B05B23E295BB5EB10EAA /* libPods-WatchDemoNavi.a */,
+				3161E4530F537AA15984EB02 /* libPods-WatchDemoNavi WatchKit Extension.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79F57BD0B69EFEE956FA762A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8713E4D08FBCF237B1B0245 /* Pods-WatchDemoNavi.debug.xcconfig */,
+				D7D514E6EC3E65945E9BEED1 /* Pods-WatchDemoNavi.release.xcconfig */,
+				BA039F5B917C040360F9266E /* Pods-WatchDemoNavi WatchKit Extension.debug.xcconfig */,
+				3C2C17540BC5691A0FB9FD93 /* Pods-WatchDemoNavi WatchKit Extension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A5710C51B2A7AC600658535 /* WatchDemoNavi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A5710E91B2A7AC600658535 /* Build configuration list for PBXNativeTarget "WatchDemoNavi" */;
+			buildPhases = (
+				410A0CAEC911DCBB75AE4F5E /* [CP] Check Pods Manifest.lock */,
+				3A5710C21B2A7AC600658535 /* Sources */,
+				3A5710C31B2A7AC600658535 /* Frameworks */,
+				3A5710C41B2A7AC600658535 /* Resources */,
+				3A5711441B2A7C7000658535 /* Embed App Extensions */,
+				924C797518019B14020AAB4F /* [CP] Embed Pods Frameworks */,
+				760700060A9148DDEBD91E8D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A57113C1B2A7C7000658535 /* PBXTargetDependency */,
+			);
+			name = WatchDemoNavi;
+			productName = WatchDemoNavi;
+			productReference = 3A5710C61B2A7AC600658535 /* WatchDemoNavi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A57111C1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A5711411B2A7C7000658535 /* Build configuration list for PBXNativeTarget "WatchDemoNavi WatchKit Extension" */;
+			buildPhases = (
+				7EBDC8E3FF7BB935650BC58F /* [CP] Check Pods Manifest.lock */,
+				3A5711191B2A7C7000658535 /* Sources */,
+				3A57111A1B2A7C7000658535 /* Frameworks */,
+				3A57111B1B2A7C7000658535 /* Resources */,
+				F9B7E3C325B55BA80260BDFF /* [CP] Embed Pods Frameworks */,
+				22550A47D169207C5F5E81C0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A5711321B2A7C7000658535 /* PBXTargetDependency */,
+			);
+			name = "WatchDemoNavi WatchKit Extension";
+			productName = "WatchDemoNavi WatchKit Extension";
+			productReference = 3A57111D1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		3A57112E1B2A7C7000658535 /* WatchDemoNavi WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A57113E1B2A7C7000658535 /* Build configuration list for PBXNativeTarget "WatchDemoNavi WatchKit App" */;
+			buildPhases = (
+				3A57112D1B2A7C7000658535 /* Resources */,
+				652D26C6D322F139019FB076 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchDemoNavi WatchKit App";
+			productName = "WatchDemoNavi WatchKit App";
+			productReference = 3A57112F1B2A7C7000658535 /* WatchDemoNavi WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A5710BE1B2A7AC600658535 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = AutoNavi;
+				TargetAttributes = {
+					3A5710C51B2A7AC600658535 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = YMJ372W38W;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					3A57111C1B2A7C7000658535 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = YMJ372W38W;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					3A57112E1B2A7C7000658535 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = YMJ372W38W;
+					};
+				};
+			};
+			buildConfigurationList = 3A5710C11B2A7AC600658535 /* Build configuration list for PBXProject "WatchDemoNavi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A5710BD1B2A7AC600658535;
+			productRefGroup = 3A5710C71B2A7AC600658535 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A5710C51B2A7AC600658535 /* WatchDemoNavi */,
+				3A57111C1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension */,
+				3A57112E1B2A7C7000658535 /* WatchDemoNavi WatchKit App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A5710C41B2A7AC600658535 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AA783A71B412BBC00ED3FCF /* Default@2x.png in Resources */,
+				3AA783A81B412BBC00ED3FCF /* icon-72.png in Resources */,
+				3AA783AA1B412BBC00ED3FCF /* icon.png in Resources */,
+				3AA783A91B412BBC00ED3FCF /* icon-72@2x.png in Resources */,
+				3AA783A51B412BBC00ED3FCF /* Default-568h@2x.png in Resources */,
+				3A5710DA1B2A7AC600658535 /* LaunchScreen.xib in Resources */,
+				3AA783A61B412BBC00ED3FCF /* Default.png in Resources */,
+				3AA783AB1B412BBC00ED3FCF /* icon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A57111B1B2A7C7000658535 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A57112C1B2A7C7000658535 /* Images.xcassets in Resources */,
+				3A5711301B2A7C7000658535 /* WatchDemoNavi WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A57112D1B2A7C7000658535 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5711381B2A7C7000658535 /* Interface.storyboard in Resources */,
+				3A57113A1B2A7C7000658535 /* Images.xcassets in Resources */,
+				3AA783B71B412DDE00ED3FCF /* icon-40@2x.png in Resources */,
+				3AA783B61B412DDE00ED3FCF /* icon-40.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22550A47D169207C5F5E81C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchDemoNavi WatchKit Extension/Pods-WatchDemoNavi WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		410A0CAEC911DCBB75AE4F5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		760700060A9148DDEBD91E8D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchDemoNavi/Pods-WatchDemoNavi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EBDC8E3FF7BB935650BC58F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		924C797518019B14020AAB4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchDemoNavi/Pods-WatchDemoNavi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9B7E3C325B55BA80260BDFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchDemoNavi WatchKit Extension/Pods-WatchDemoNavi WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A5710C21B2A7AC600658535 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5710F71B2A7B6000658535 /* ViewController.m in Sources */,
+				3A7CA9CF1B2A8BB900DB324A /* MMWormholeFileTransiting.m in Sources */,
+				3A7CA9CB1B2A8BB900DB324A /* MMWormhole.m in Sources */,
+				3A53F3491B3143510069F9A7 /* FileTransiting.m in Sources */,
+				3A5710CF1B2A7AC600658535 /* AppDelegate.m in Sources */,
+				3A5D734B1B2FDB42005CA5E2 /* TrafficStatusCircle.m in Sources */,
+				3ACCE75B1D012C2500386BE6 /* SpeechSynthesizer.m in Sources */,
+				3A5710CC1B2A7AC600658535 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A5711191B2A7C7000658535 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5D734F1B301CA0005CA5E2 /* RouteTrafficInterfaceController.m in Sources */,
+				3A28E4921B2AC274006BF079 /* GuideInterfaceController.m in Sources */,
+				3A5711271B2A7C7000658535 /* NotificationController.m in Sources */,
+				3A7CA9D01B2A8BB900DB324A /* MMWormholeFileTransiting.m in Sources */,
+				3A5711241B2A7C7000658535 /* InterfaceController.m in Sources */,
+				3A7CA9CC1B2A8BB900DB324A /* MMWormhole.m in Sources */,
+				3A28E48F1B2AC265006BF079 /* HUDInterfaceController.m in Sources */,
+				3A4D5CE01B2ECAC2007A1B78 /* GuideTableRow.m in Sources */,
+				3A53F34A1B3143510069F9A7 /* FileTransiting.m in Sources */,
+				3A5D734C1B2FDB42005CA5E2 /* TrafficStatusCircle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A5711321B2A7C7000658535 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A57112E1B2A7C7000658535 /* WatchDemoNavi WatchKit App */;
+			targetProxy = 3A5711311B2A7C7000658535 /* PBXContainerItemProxy */;
+		};
+		3A57113C1B2A7C7000658535 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A57111C1B2A7C7000658535 /* WatchDemoNavi WatchKit Extension */;
+			targetProxy = 3A57113B1B2A7C7000658535 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3A5710D81B2A7AC600658535 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A5710D91B2A7AC600658535 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		3A5711361B2A7C7000658535 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A5711371B2A7C7000658535 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A5710E71B2A7AC600658535 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3A5710E81B2A7AC600658535 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A5710EA1B2A7AC600658535 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8713E4D08FBCF237B1B0245 /* Pods-WatchDemoNavi.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WatchDemoNavi/WatchDemoNavi.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WatchDemoNavi/Extern",
+				);
+				INFOPLIST_FILE = WatchDemoNavi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		3A5710EB1B2A7AC600658535 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7D514E6EC3E65945E9BEED1 /* Pods-WatchDemoNavi.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WatchDemoNavi/WatchDemoNavi.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WatchDemoNavi/Extern",
+				);
+				INFOPLIST_FILE = WatchDemoNavi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		3A57113F1B2A7C7000658535 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = WatchDemoNavi_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchDemoNavi WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		3A5711401B2A7C7000658535 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				IBSC_MODULE = WatchDemoNavi_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchDemoNavi WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		3A5711421B2A7C7000658535 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA039F5B917C040360F9266E /* Pods-WatchDemoNavi WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "WatchDemoNavi WatchKit Extension/WatchDemoNavi WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WatchDemoNavi/Extern",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WatchDemoNavi WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3A5711431B2A7C7000658535 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C2C17540BC5691A0FB9FD93 /* Pods-WatchDemoNavi WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "WatchDemoNavi WatchKit Extension/WatchDemoNavi WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YMJ372W38W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WatchDemoNavi/Extern",
+				);
+				INFOPLIST_FILE = "WatchDemoNavi WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A5710C11B2A7AC600658535 /* Build configuration list for PBXProject "WatchDemoNavi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A5710E71B2A7AC600658535 /* Debug */,
+				3A5710E81B2A7AC600658535 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A5710E91B2A7AC600658535 /* Build configuration list for PBXNativeTarget "WatchDemoNavi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A5710EA1B2A7AC600658535 /* Debug */,
+				3A5710EB1B2A7AC600658535 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A57113E1B2A7C7000658535 /* Build configuration list for PBXNativeTarget "WatchDemoNavi WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A57113F1B2A7C7000658535 /* Debug */,
+				3A5711401B2A7C7000658535 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A5711411B2A7C7000658535 /* Build configuration list for PBXNativeTarget "WatchDemoNavi WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A5711421B2A7C7000658535 /* Debug */,
+				3A5711431B2A7C7000658535 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A5710BE1B2A7AC600658535 /* Project object */;
+}

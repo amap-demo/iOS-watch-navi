@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <label alignment="center" text="TipLabel" id="T64-MJ-X7k"/>
+                        <button width="1" alignment="left" title="Button1" id="dCm-bI-dwn">
+                            <connections>
+                                <action selector="button1Action:" destination="AgC-eL-Hgc" id="16N-TT-0hF"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Button2" id="LvU-cd-pIg">
+                            <connections>
+                                <action selector="button2Action:" destination="AgC-eL-Hgc" id="2Bi-a9-qBO"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="button1" destination="dCm-bI-dwn" id="Za5-Ny-dOV"/>
+                        <outlet property="button2" destination="LvU-cd-pIg" id="SFM-tH-sIp"/>
+                        <outlet property="tipLabel" destination="T64-MJ-X7k" id="sfK-Us-5TZ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="346.25"/>
+        </scene>
+        <!--完成-->
+        <scene sceneID="aZU-sQ-MRc">
+            <objects>
+                <controller identifier="HUDInterfaceController" title="完成" id="GyM-ke-c6N" customClass="HUDInterfaceController">
+                    <items>
+                        <label alignment="center" text="CurrentRoad" id="6xN-dy-kvo"/>
+                        <label alignment="center" text="NextRoad" id="pKX-66-jD2"/>
+                        <imageView alignment="center" id="Rrk-ie-0Yb"/>
+                        <label alignment="center" text="RemianDistance" id="yU7-HF-T9v"/>
+                        <label alignment="center" text="RouteRemainInfo" id="lxw-dD-f2I"/>
+                    </items>
+                    <connections>
+                        <outlet property="currentRoadLabel" destination="6xN-dy-kvo" id="VP1-Xj-a1m"/>
+                        <outlet property="nextRoadLabel" destination="pKX-66-jD2" id="8tE-fg-gKv"/>
+                        <outlet property="remainDistanceLabel" destination="yU7-HF-T9v" id="Act-Ti-HgZ"/>
+                        <outlet property="routeRemainInfo" destination="lxw-dD-f2I" id="lvp-YT-MjO"/>
+                        <outlet property="turnIcon" destination="Rrk-ie-0Yb" id="eaK-t5-Rt8"/>
+                        <segue destination="YPj-rx-pIQ" kind="relationship" relationship="nextPage" id="upu-IJ-45h"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="451" y="258"/>
+        </scene>
+        <!--完成-->
+        <scene sceneID="vHd-Lx-ULr">
+            <objects>
+                <controller identifier="RouteTrafficInterfaceController" title="完成" id="yFZ-za-KH7" customClass="RouteTrafficInterfaceController">
+                    <items>
+                        <imageView alignment="center" id="RW0-RK-qcA"/>
+                        <label alignment="center" text="Label" id="64m-LC-fjL"/>
+                    </items>
+                    <connections>
+                        <outlet property="tipLabel" destination="64m-LC-fjL" id="n9o-jP-FWT"/>
+                        <outlet property="trafficCircleImage" destination="RW0-RK-qcA" id="qNX-bi-zdO"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="451" y="519"/>
+        </scene>
+        <!--完成-->
+        <scene sceneID="l5o-Qr-0DD">
+            <objects>
+                <controller identifier="GuideInterfaceController" title="完成" id="YPj-rx-pIQ" customClass="GuideInterfaceController">
+                    <items>
+                        <table alignment="left" id="o2L-ZY-vzq">
+                            <items>
+                                <tableRow identifier="GuideTableRow" id="o4q-Sp-6im" customClass="GuideTableRow">
+                                    <group key="rootItem" width="1" alignment="left" id="4DC-D1-HUJ">
+                                        <items>
+                                            <imageView width="34" height="34" alignment="left" id="16O-lw-Ubl"/>
+                                            <label alignment="left" text="Label" numberOfLines="3" id="IFF-X5-guM"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="infoLabel" destination="IFF-X5-guM" id="M88-Gk-FEs"/>
+                                        <outlet property="turnIcon" destination="16O-lw-Ubl" id="IvL-bx-Kr2"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="guideTable" destination="o2L-ZY-vzq" id="YeG-VK-M0o"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="656" y="258"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="updateNaviInfo" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="1001"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="1001"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.28627450980000002" green="0.59215686270000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>
