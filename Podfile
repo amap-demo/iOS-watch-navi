@@ -9,20 +9,3 @@ target 'WatchDemoNavi' do
   pod 'AMapNavi'
 
 end
-
-target 'WatchDemoNavi WatchKit App' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
-
-  # Pods for WatchDemoNavi WatchKit App
-
-end
-
-target 'WatchDemoNavi WatchKit Extension' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
-
-  # Pods for WatchDemoNavi WatchKit Extension
-#  pod 'AMapNavi'
-
-end
