@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
-
 #import "APIKey.h"
 #import "ViewController.h"
 #import "CommonDefine.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
+#import <WatchConnectivity/WatchConnectivity.h>
+#import "SessionDelegate.h"
 
 @interface AppDelegate ()
 
@@ -31,26 +32,13 @@
     [AMapServices sharedServices].apiKey = (NSString *)APIKey;
 }
 
-- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
-{
-    NSString *actionKey = [userInfo valueForKey:@"action"];
-    NSMutableDictionary *replyDic = [NSMutableDictionary dictionaryWithObject:actionKey forKey:@"action"];
-    
-    if ([actionKey isEqualToString:@""])
-    {
-        
-    }
-    
-    reply(replyDic);
-}
-
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.sessionDelegate = [[SessionDelegate alloc] init];
+    self.sessionDelegate.name = @"iOS Main APP";
+    [WCSession defaultSession].delegate = self.sessionDelegate;
+    [[WCSession defaultSession] activateSession];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.viewController = [[ViewController alloc] init];
     
