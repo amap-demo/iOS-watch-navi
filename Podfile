@@ -8,16 +8,6 @@ target 'WatchDemoNavi' do
   # Pods for WatchDemoNavi
   pod 'AMapNavi'
 
-  target 'WatchDemoNaviTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'WatchDemoNaviUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
 
 target 'WatchDemoNavi WatchKit App' do
