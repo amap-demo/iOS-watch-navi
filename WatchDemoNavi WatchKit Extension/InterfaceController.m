@@ -8,13 +8,12 @@
 
 #import "InterfaceController.h"
 #import "CommonDefine.h"
-
-#import "MMWormhole.h"
-#import "FileTransiting.h"
+#import <WatchConnectivity/WatchConnectivity.h>
+#import "ExtensionDelegate.h"
+#import "SessionDelegate.h"
 
 @interface InterfaceController()
 
-@property (nonatomic, strong) MMWormhole *wormhole;
 @property (nonatomic, assign) BOOL isStartNavi;
 
 @property (nonatomic, weak) IBOutlet WKInterfaceLabel *tipLabel;
@@ -74,12 +73,6 @@
 - (void)initProperties
 {
     self.isStartNavi = NO;
-    
-    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                         optionalDirectory:AppGroupDirectory];
-    FileTransiting *fileTransiting = [[FileTransiting alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                                              optionalDirectory:AppGroupDirectory];
-    [self.wormhole setWormholeMessenger:fileTransiting];
 }
 
 #pragma mark - Handle Views
@@ -100,15 +93,19 @@
 - (void)addListenerForMessage
 {
     __weak InterfaceController *weakSelf = self;
-    
-    [self.wormhole listenForMessageWithIdentifier:MessageIdentifier_ChangeNaviState listener:^(id messageObject) {
-        [weakSelf receiveDidStartNaviMessage:messageObject];
-    }];
+    ExtensionDelegate *delegate = (ExtensionDelegate*)[WKExtension sharedExtension].delegate;
+    [delegate.sessionDelegate setReceiveMsgBlock:^(NSDictionary<NSString *,id> * _Nonnull message) {
+        NSString *identifier = [message objectForKey:MessageIdentifierKey];
+        if ([identifier isEqualToString:MessageIdentifier_ChangeNaviState]) {
+            [weakSelf receiveDidStartNaviMessage:message];
+        }
+    } withKey:NSStringFromClass(self.class)];
 }
 
 - (void)stopListenerForMessage
 {
-    [self.wormhole stopListeningForMessageWithIdentifier:MessageIdentifier_ChangeNaviState];
+    ExtensionDelegate *delegate = (ExtensionDelegate*)[WKExtension sharedExtension].delegate;
+    [delegate.sessionDelegate removeMsgBlockWithKey:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Receive Message
@@ -117,22 +114,25 @@
 {
     NSDictionary *messageDic = (NSDictionary *)messageObject;
     self.isStartNavi = [[messageDic valueForKey:@"value"] boolValue];
-    
-    if (self.isStartNavi)
-    {
-        [self presentControllerWithNames:@[@"HUDInterfaceController",@"GuideInterfaceController"] contexts:nil];
-    }
-    else
-    {
-        [self dismissController];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.isStartNavi)
+        {
+            [self presentControllerWithNames:@[@"HUDInterfaceController",@"GuideInterfaceController"] contexts:nil];
+        }
+        else
+        {
+            [self dismissController];
+        }
+    });
 }
 
 #pragma mark - Utility
 
 - (void)checkIsStartNavi
 {
-    [self.wormhole passMessageObject:@{@"value":@"isStartNavi"} identifier:MessageIdentifier_WatchCheck];
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_WatchCheck,@"value":@"isStartNavi"} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"check is start navi error:%@",error);
+    }];
 }
 
 #pragma mark - Button Action

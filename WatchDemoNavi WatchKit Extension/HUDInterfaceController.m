@@ -7,16 +7,12 @@
 //
 
 #import "HUDInterfaceController.h"
-
-#import <AMapNaviKit/AMapNaviInfo.h>
+#import <WatchConnectivity/WatchConnectivity.h>
+#import "ExtensionDelegate.h"
+#import "SessionDelegate.h"
 #import "CommonDefine.h"
 
-#import "MMWormhole.h"
-#import "FileTransiting.h"
-
 @interface HUDInterfaceController ()
-
-@property (nonatomic, strong) MMWormhole *wormhole;
 
 @property (nonatomic, weak) IBOutlet WKInterfaceLabel *currentRoadLabel;
 @property (nonatomic, weak) IBOutlet WKInterfaceLabel *nextRoadLabel;
@@ -34,7 +30,6 @@
 {
     if (self = [super init])
     {
-        [self initProperties];
     }
     return self;
 }
@@ -67,15 +62,6 @@
 
 #pragma mark - Initalization
 
-- (void)initProperties
-{
-    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                         optionalDirectory:AppGroupDirectory];
-    FileTransiting *fileTransiting = [[FileTransiting alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                                              optionalDirectory:AppGroupDirectory];
-    [self.wormhole setWormholeMessenger:fileTransiting];
-}
-
 - (void)addStopNaviMenuItem
 {
     [self addMenuItemWithItemIcon:WKMenuItemIconDecline title:@"停止导航" action:@selector(stopNaviMenuItemAction)];
@@ -85,10 +71,7 @@
 
 - (IBAction)stopNaviMenuItemAction
 {
-    if (self.wormhole)
-    {
-        [self.wormhole passMessageObject:nil identifier:MessageIdentifier_WatchStopNavi];
-    }
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_WatchStopNavi} replyHandler:nil errorHandler:nil];
 }
 
 #pragma mark - Handle Listener
@@ -97,32 +80,39 @@
 {
     __weak HUDInterfaceController *weakSelf = self;
     
-    [self.wormhole listenForMessageWithIdentifier:MessageIdentifier_UpdateNaviInfo listener:^(id messageObject) {
-        [weakSelf receiveUpdateNaviInfoMessage:messageObject];
-    }];
+    ExtensionDelegate *delegate = (ExtensionDelegate*)[WKExtension sharedExtension].delegate;
+    [delegate.sessionDelegate setReceiveMsgBlock:^(NSDictionary<NSString *,id> * _Nonnull message) {
+        NSString *identifier = [message objectForKey:MessageIdentifierKey];
+        if ([identifier isEqualToString:MessageIdentifier_UpdateNaviInfo]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf receiveUpdateNaviInfoMessage:message];
+            });
+        }
+    } withKey:NSStringFromClass(self.class)];
 }
 
 - (void)stopListenerForMessage
 {
-    [self.wormhole stopListeningForMessageWithIdentifier:MessageIdentifier_UpdateNaviInfo];
+    ExtensionDelegate *delegate = (ExtensionDelegate*)[WKExtension sharedExtension].delegate;
+    [delegate.sessionDelegate removeMsgBlockWithKey:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Receive Message
 
-- (void)receiveUpdateNaviInfoMessage:(id)messageObject
+- (void)receiveUpdateNaviInfoMessage:(NSDictionary *)message
 {
-    AMapNaviInfo *naviInfo = [(NSDictionary *)messageObject valueForKey:@"value"];
+    NSDictionary *naviDict = [message valueForKey:@"value"];
     
-    if (naviInfo)
+    if (naviDict)
     {
-        [self.currentRoadLabel setText:[NSString stringWithFormat:@"从 %@ 进入", naviInfo.currentRoadName]];
-        [self.nextRoadLabel setText:naviInfo.nextRoadName];
+        [self.currentRoadLabel setText:[NSString stringWithFormat:@"从 %@ 进入", [naviDict objectForKey:@"currentRoadName"]]];
+        [self.nextRoadLabel setText:[naviDict objectForKey:@"nextRoadName"]];
         
-        [self.turnIcon setImageNamed:[self buildImageNameWithIconType:naviInfo.iconType]];
-        [self.remainDistanceLabel setText:[self normalizedRemainDistance:naviInfo.segmentRemainDistance]];
+        [self.turnIcon setImageNamed:[self buildImageNameWithIconType:[[naviDict objectForKey:@"iconType"] integerValue]]];
+        [self.remainDistanceLabel setText:[self normalizedRemainDistance:[[naviDict objectForKey:@"segmentRemainDistance"] integerValue]]];
         
-        NSString *roadRemainDistance = [self normalizedRemainDistance:naviInfo.routeRemainDistance];
-        NSString *roadRemainTime = [self normalizedRemainTime:naviInfo.routeRemainTime];
+        NSString *roadRemainDistance = [self normalizedRemainDistance:[[naviDict objectForKey:@"routeRemainDistance"] integerValue]];
+        NSString *roadRemainTime = [self normalizedRemainTime:[[naviDict objectForKey:@"routeRemainTime"] integerValue]];
         [self.routeRemainInfo setText:[NSString stringWithFormat:@"%@ | %@", roadRemainTime, roadRemainDistance]];
     }
 }
@@ -131,7 +121,8 @@
 
 - (void)checkNaviInfo
 {
-    [self.wormhole passMessageObject:@{@"value":@"getNaviInfo"} identifier:MessageIdentifier_WatchCheck];
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_WatchCheck,@"value":@"getNaviInfo"} replyHandler:nil errorHandler:nil];
+//    [self.wormhole passMessageObject:@{@"value":@"getNaviInfo"} identifier:MessageIdentifier_WatchCheck];
 }
 
 - (NSString *)buildImageNameWithIconType:(NSInteger)iconType

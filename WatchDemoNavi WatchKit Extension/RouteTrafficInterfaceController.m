@@ -9,16 +9,14 @@
 #import "RouteTrafficInterfaceController.h"
 
 #import "CommonDefine.h"
-
-#import "MMWormhole.h"
-#import "FileTransiting.h"
+#import <WatchConnectivity/WatchConnectivity.h>
+#import "ExtensionDelegate.h"
+#import "SessionDelegate.h"
 
 @interface RouteTrafficInterfaceController ()
 {
     UIImage *_trafficImage;
 }
-
-@property (nonatomic, strong) MMWormhole *wormhole;
 
 @property (nonatomic, weak) IBOutlet WKInterfaceImage *trafficCircleImage;
 @property (nonatomic, weak) IBOutlet WKInterfaceLabel *tipLabel;
@@ -31,7 +29,6 @@
 {
     if (self = [super init])
     {
-        [self initProperties];
     }
     return self;
 }
@@ -57,19 +54,10 @@
 - (void)didDeactivate
 {
     [super didDeactivate];
-    
-    [self stopListenerForMessage];
 }
 
-#pragma mark - Initalization
-
-- (void)initProperties
-{
-    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                         optionalDirectory:AppGroupDirectory];
-    FileTransiting *fileTransiting = [[FileTransiting alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                                              optionalDirectory:AppGroupDirectory];
-    [self.wormhole setWormholeMessenger:fileTransiting];
+- (void)dealloc {
+    [self stopListenerForMessage];
 }
 
 #pragma mark - Handle Listener
@@ -78,28 +66,37 @@
 {
     __weak RouteTrafficInterfaceController *weakSelf = self;
     
-    [self.wormhole listenForMessageWithIdentifier:MessageIdentifier_TrafficImage listener:^(id messageObject) {
-        [weakSelf receiveTrafficImageMessage:messageObject];
-    }];
+    ExtensionDelegate *delegate = (ExtensionDelegate *)[WKExtension sharedExtension].delegate;
+    [delegate.sessionDelegate setReceiveMsgBlock:^(NSDictionary<NSString *,id> * _Nonnull message) {
+        NSString *identifier = [message objectForKey:MessageIdentifierKey];
+        if ([identifier isEqualToString:MessageIdentifier_TrafficImage]) {
+            [weakSelf receiveTrafficImageMessage:message];
+        }
+    } withKey:NSStringFromClass(self.class)];
 }
 
 - (void)stopListenerForMessage
 {
-    [self.wormhole stopListeningForMessageWithIdentifier:MessageIdentifier_TrafficImage];
+    ExtensionDelegate *delegate = (ExtensionDelegate *)[WKExtension sharedExtension].delegate;
+    [delegate.sessionDelegate removeMsgBlockWithKey:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Receive Message
 
 - (void)receiveTrafficImageMessage:(id)messageObject
 {
-    [self setTrafficImage:[messageObject valueForKey:@"value"]];
+    NSData *imageData = [messageObject valueForKey:@"value"];
+    UIImage *image = [UIImage imageWithData:imageData];
+    [self setTrafficImage:image];
 }
 
 #pragma mark - Utility
 
 - (void)checkTrafficImage
 {
-    [self.wormhole passMessageObject:@{@"value":@"getTrafficImage"} identifier:MessageIdentifier_WatchCheck];
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_WatchCheck,@"value":@"getTrafficImage"} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"watch check getTraffic image error:%@",error);
+    }];
 }
 
 #pragma mark - Override
@@ -113,10 +110,7 @@
     
     _trafficImage = image;
     
-    [[WKInterfaceDevice currentDevice] removeCachedImageWithName:@"WatchNaviDemo_TrafficImage"];
-    [[WKInterfaceDevice currentDevice] addCachedImage:image name:@"WatchNaviDemo_TrafficImage"];
-    
-    [self.trafficCircleImage setImageNamed:@"WatchNaviDemo_TrafficImage"];
+    [self.trafficCircleImage setImage:_trafficImage];
 }
 
 @end

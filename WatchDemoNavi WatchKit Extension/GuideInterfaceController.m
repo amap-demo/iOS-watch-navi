@@ -7,20 +7,15 @@
 //
 
 #import "GuideInterfaceController.h"
-
-#import <AMapNaviKit/AMapNaviCommonObj.h>
 #import "CommonDefine.h"
 #import "GuideTableRow.h"
-
-#import "MMWormhole.h"
-#import "FileTransiting.h"
+#import "ExtensionDelegate.h"
+#import "SessionDelegate.h"
 
 @interface GuideInterfaceController ()
 {
     NSArray *_guideList;
 }
-
-@property (nonatomic, strong) MMWormhole *wormhole;
 
 @property (nonatomic, weak) IBOutlet WKInterfaceTable *guideTable;
 
@@ -55,20 +50,18 @@
 {
     [super didDeactivate];
     
+}
+
+- (void)dealloc {
     [self stopListenerForMessage];
 }
+
 
 #pragma mark - Initalization
 
 - (void)initProperties
 {
     _guideList = [[NSArray alloc] init];
-    
-    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                         optionalDirectory:AppGroupDirectory];
-    FileTransiting *fileTransiting = [[FileTransiting alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                                              optionalDirectory:AppGroupDirectory];
-    [self.wormhole setWormholeMessenger:fileTransiting];
 }
 
 #pragma mark - Handle Listener
@@ -77,14 +70,22 @@
 {
     __weak GuideInterfaceController *weakSelf = self;
     
-    [self.wormhole listenForMessageWithIdentifier:MessageIdentifier_UpdateGuide listener:^(id messageObject) {
-        [weakSelf receiveUpdateGuideMessage:messageObject];
-    }];
+    ExtensionDelegate *delegate = (ExtensionDelegate*)[WKExtension sharedExtension].delegate;
+    [delegate.sessionDelegate setReceiveMsgBlock:^(NSDictionary<NSString *,id> * _Nonnull message) {
+        NSString *identifier = [message objectForKey:MessageIdentifierKey];
+        if ([identifier isEqualToString:MessageIdentifier_UpdateGuide]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf receiveUpdateGuideMessage:message];
+            });
+        }
+    } withKey:NSStringFromClass(self.class)];
 }
 
 - (void)stopListenerForMessage
 {
-    [self.wormhole stopListeningForMessageWithIdentifier:MessageIdentifier_UpdateGuide];
+    ExtensionDelegate *delegate = (ExtensionDelegate *)[WKExtension sharedExtension].delegate;
+    [delegate.sessionDelegate removeMsgBlockWithKey:NSStringFromClass(self.class)];
+//    [self.wormhole stopListeningForMessageWithIdentifier:MessageIdentifier_UpdateGuide];
 }
 
 #pragma mark - Receive Message
@@ -100,7 +101,7 @@
 
 - (void)checkNaviGuide
 {
-    [self.wormhole passMessageObject:@{@"value":@"getGuideList"} identifier:MessageIdentifier_WatchCheck];
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_WatchCheck,@"value":@"getGuideList"} replyHandler:nil errorHandler:nil];
 }
 
 #pragma mark - Table

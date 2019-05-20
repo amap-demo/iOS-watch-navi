@@ -12,6 +12,7 @@
 #define AppGroupIdentifier                  @"group.autonavi.watchDemo"
 #define AppGroupDirectory                   @"WatchDemoNavi"
 
+#define MessageIdentifierKey                @"WatchDemoNaviMessageIdentifier"
 #define MessageIdentifier_ChangeNaviState   @"WatchDemoNaviMessage_ChangeNaviState"
 #define MessageIdentifier_UpdateNaviInfo    @"WatchDemoNaviMessage_UpdateNaviInfo"
 #define MessageIdentifier_UpdateGuide       @"WatchDemoNaviMessage_UpdateUpdateGuide"
