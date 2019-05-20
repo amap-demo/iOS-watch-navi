@@ -101,10 +101,6 @@
 		0A57ED73228AB8F800A7A31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A57ED75228AB8F800A7A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A57ED76228AB8F800A7A31C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0A57ED80228AB8F900A7A31C /* WatchDemoNaviTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchDemoNaviTests.m; sourceTree = "<group>"; };
-		0A57ED82228AB8F900A7A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A57ED8B228AB8F900A7A31C /* WatchDemoNaviUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchDemoNaviUITests.m; sourceTree = "<group>"; };
-		0A57ED8D228AB8F900A7A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A57ED90228AB8F900A7A31C /* WatchDemoNavi WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchDemoNavi WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A57ED96228AB8F900A7A31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		0A57ED98228AB8F900A7A31C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,8 +217,6 @@
 			children = (
 				0A3D1181228EE82E00074387 /* Share */,
 				0A57ED66228AB8F700A7A31C /* WatchDemoNavi */,
-				0A57ED7F228AB8F900A7A31C /* WatchDemoNaviTests */,
-				0A57ED8A228AB8F900A7A31C /* WatchDemoNaviUITests */,
 				0A57ED94228AB8F900A7A31C /* WatchDemoNavi WatchKit App */,
 				0A57EDA3228AB8F900A7A31C /* WatchDemoNavi WatchKit Extension */,
 				0A57ED65228AB8F700A7A31C /* Products */,
@@ -257,24 +251,6 @@
 				0A57ED76228AB8F800A7A31C /* main.m */,
 			);
 			path = WatchDemoNavi;
-			sourceTree = "<group>";
-		};
-		0A57ED7F228AB8F900A7A31C /* WatchDemoNaviTests */ = {
-			isa = PBXGroup;
-			children = (
-				0A57ED80228AB8F900A7A31C /* WatchDemoNaviTests.m */,
-				0A57ED82228AB8F900A7A31C /* Info.plist */,
-			);
-			path = WatchDemoNaviTests;
-			sourceTree = "<group>";
-		};
-		0A57ED8A228AB8F900A7A31C /* WatchDemoNaviUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0A57ED8B228AB8F900A7A31C /* WatchDemoNaviUITests.m */,
-				0A57ED8D228AB8F900A7A31C /* Info.plist */,
-			);
-			path = WatchDemoNaviUITests;
 			sourceTree = "<group>";
 		};
 		0A57ED94228AB8F900A7A31C /* WatchDemoNavi WatchKit App */ = {
