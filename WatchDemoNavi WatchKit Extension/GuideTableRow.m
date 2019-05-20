@@ -7,7 +7,6 @@
 //
 
 #import "GuideTableRow.h"
-#import <AMapNaviKit/AMapNaviCommonObj.h>
 
 @interface GuideTableRow ()
 
@@ -29,22 +28,23 @@
 
 #pragma mark - Override
 
-- (void)setGuideItem:(AMapNaviGuide *)guideItem
+- (void)setGuideItem:(NSDictionary *)guideItem
 {
-    [self.turnIcon setImageNamed:[self buildImageNameWithIconType:guideItem.iconType]];
-    
+    [self.turnIcon setImageNamed:[self buildImageNameWithIconType:[[guideItem objectForKey:@"iconType"] integerValue]]];
+
     NSMutableString *infoString = [[NSMutableString alloc] init];
-    if ([guideItem.name isEqualToString:@""])
+    NSString *name = [guideItem objectForKey:@"name"];
+    if (!name || [name isEqualToString:@""])
     {
         [infoString appendString:@"无名道路"];
     }
     else
     {
-        [infoString appendString:guideItem.name];
+        [infoString appendString:name];
     }
-    
-    [infoString appendFormat:@" - %@", [self normalizedRemainDistance:guideItem.length]];
-    
+
+    [infoString appendFormat:@" - %@", [self normalizedRemainDistance:[[guideItem objectForKey:@"length"] integerValue]]];
+
     [self.infoLabel setText:infoString];
 }
 

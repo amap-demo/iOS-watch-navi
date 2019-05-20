@@ -9,10 +9,8 @@
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
 
-@class AMapNaviGuide;
-
 @interface GuideTableRow : NSObject
 
-@property (nonatomic, assign) AMapNaviGuide *guideItem;
+@property (nonatomic, assign) NSDictionary *guideItem;
 
 @end
