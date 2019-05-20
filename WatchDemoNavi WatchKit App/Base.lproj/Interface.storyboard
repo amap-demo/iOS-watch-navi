@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -31,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="235" y="346.25"/>
         </scene>
-        <!--完成-->
+        <!--HUD Interface Controller-->
         <scene sceneID="aZU-sQ-MRc">
             <objects>
-                <controller identifier="HUDInterfaceController" title="完成" id="GyM-ke-c6N" customClass="HUDInterfaceController">
+                <controller identifier="HUDInterfaceController" title="完成" id="GyM-ke-c6N" userLabel="HUD Interface Controller" customClass="HUDInterfaceController">
                     <items>
                         <label alignment="center" text="CurrentRoad" id="6xN-dy-kvo"/>
                         <label alignment="center" text="NextRoad" id="pKX-66-jD2"/>
@@ -54,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="451" y="258"/>
         </scene>
-        <!--完成-->
+        <!--Route TrafficInterface Controller-->
         <scene sceneID="vHd-Lx-ULr">
             <objects>
-                <controller identifier="RouteTrafficInterfaceController" title="完成" id="yFZ-za-KH7" customClass="RouteTrafficInterfaceController">
+                <controller identifier="RouteTrafficInterfaceController" title="完成" id="yFZ-za-KH7" userLabel="Route TrafficInterface Controller" customClass="RouteTrafficInterfaceController">
                     <items>
                         <imageView alignment="center" id="RW0-RK-qcA"/>
                         <label alignment="center" text="Label" id="64m-LC-fjL"/>
@@ -68,12 +72,12 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="451" y="519"/>
+            <point key="canvasLocation" x="451" y="565"/>
         </scene>
-        <!--完成-->
+        <!--Guide Interface Controller-->
         <scene sceneID="l5o-Qr-0DD">
             <objects>
-                <controller identifier="GuideInterfaceController" title="完成" id="YPj-rx-pIQ" customClass="GuideInterfaceController">
+                <controller identifier="GuideInterfaceController" title="完成" id="YPj-rx-pIQ" userLabel="Guide Interface Controller" customClass="GuideInterfaceController">
                     <items>
                         <table alignment="left" id="o2L-ZY-vzq">
                             <items>
