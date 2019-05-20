@@ -12,8 +12,11 @@
 
 #import "CommonDefine.h"
 #import "TrafficStatusCircle.h"
-#import "MMWormhole.h"
-#import "FileTransiting.h"
+#import <WatchConnectivity/WatchConnectivity.h>
+#import "AMapNaviInfo+ToDictionary.h"
+#import "AppDelegate.h"
+#import "SessionDelegate.h"
+#import "AMapNaviGuide+ToDictionary.h"
 
 @interface ViewController ()<AMapNaviDriveViewDelegate, AMapNaviDriveDataRepresentable>
 {
@@ -27,8 +30,6 @@
     BOOL _shouleSendNotification;
 }
 
-@property (nonatomic, strong) MMWormhole *wormhole;
-
 @property (nonatomic, strong) AMapNaviDriveView *driveView;
 
 @end
@@ -41,9 +42,12 @@
 {
     [super viewDidLoad];
     
-    [self initProperties];
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate.sessionDelegate setReceiveMsgBlock:^(NSDictionary<NSString *,id> * _Nonnull message) {
+        [self handleReceivedMsg:message];
+    } withKey:NSStringFromClass(self.class)];
     
-    [self addListenerForMessage];
+    [self initProperties];
     
     [self initPoints];
     
@@ -84,31 +88,12 @@
     _shouleSendNotification = NO;
     
     _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    
-    //MMWormhole
-    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                         optionalDirectory:AppGroupDirectory];
-    FileTransiting *fileTransiting = [[FileTransiting alloc] initWithApplicationGroupIdentifier:AppGroupIdentifier
-                                                                              optionalDirectory:AppGroupDirectory];
-    [self.wormhole setWormholeMessenger:fileTransiting];
-}
-
-- (void)addListenerForMessage
-{
-    [self.wormhole listenForMessageWithIdentifier:MessageIdentifier_WatchCheck listener:^(id messageObject) {
-        [self receiveCheckMessage:messageObject];
-    }];
-    
-    [self.wormhole listenForMessageWithIdentifier:MessageIdentifier_WatchStopNavi listener:^(id messageObject) {
-        [self receiveStopNaviMessage:messageObject];
-    }];
 }
 
 - (void)stopListenerForMessage
 {
-    [self.wormhole stopListeningForMessageWithIdentifier:MessageIdentifier_WatchCheck];
-    
-    [self.wormhole stopListeningForMessageWithIdentifier:MessageIdentifier_WatchStopNavi];
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate.sessionDelegate removeMsgBlockWithKey:NSStringFromClass(self.class)];
 }
 
 - (void)initPoints
@@ -120,7 +105,7 @@
 {
     if (self.naviManager == nil)
     {
-        self.naviManager = [[AMapNaviDriveManager alloc] init];
+        self.naviManager = [AMapNaviDriveManager sharedInstance];
     }
     
     [self.naviManager addDataRepresentative:self];
@@ -270,12 +255,18 @@
 
 - (void)sendDidStartNaviMessage
 {
-    [self.wormhole passMessageObject:@{@"value":[NSNumber numberWithBool:YES]} identifier:MessageIdentifier_ChangeNaviState];
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_ChangeNaviState,@"value":[NSNumber numberWithBool:YES]} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"send did Start NaviMsg error:%@",error);
+    }];
+//    [self.wormhole passMessageObject:@{@"value":[NSNumber numberWithBool:YES]} identifier:MessageIdentifier_ChangeNaviState];
 }
 
 - (void)sendDidStopNaviMessage
 {
-    [self.wormhole passMessageObject:@{@"value":[NSNumber numberWithBool:NO]} identifier:MessageIdentifier_ChangeNaviState];
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_ChangeNaviState,@"value":[NSNumber numberWithBool:NO]} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"send did Stop NaviMsg error:%@",error);
+    }];
+//    [self.wormhole passMessageObject:@{@"value":[NSNumber numberWithBool:NO]} identifier:MessageIdentifier_ChangeNaviState];
 }
 
 - (void)sendNaviInfoMessage
@@ -285,7 +276,10 @@
         return;
     }
     
-    [self.wormhole passMessageObject:@{@"value":[_savedNaviInfo copy]} identifier:MessageIdentifier_UpdateNaviInfo];
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_UpdateNaviInfo,@"value":[_savedNaviInfo toDictionary]} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"send navi info update error:%@",error);
+    }];
+//    [self.wormhole passMessageObject:@{@"value":[_savedNaviInfo copy]} identifier:MessageIdentifier_UpdateNaviInfo];
 }
 
 - (void)sendNaviGuideMessage
@@ -296,7 +290,16 @@
     }
     
     NSArray *guideList = [self.naviManager getNaviGuideList];
-    [self.wormhole passMessageObject:@{@"value":guideList} identifier:MessageIdentifier_UpdateGuide];
+    NSMutableArray *guideListDict = [NSMutableArray array];
+    for (AMapNaviGuide *guide in guideList) {
+        if (guide) {
+            NSDictionary *guideDict = [guide toDictionary];
+            [guideListDict addObject:guideDict];
+        }
+    }
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_UpdateGuide,@"value":[guideListDict copy]} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"send update guide error:%@",error);
+    }];
 }
 
 - (void)sendTrafficImageMessage
@@ -309,11 +312,24 @@
     NSArray *trafficArray = [self.naviManager getTrafficStatusesWithStartPosition:0 distance:(int)self.naviManager.naviRoute.routeLength];
     
     UIImage *image = [TrafficStatusCircle createCircleWithTrafficStatus:trafficArray imageSize:CGSizeMake(120, 120) lineWidth:14];
+    NSData *imageData = UIImagePNGRepresentation(image);
     
-    [self.wormhole passMessageObject:@{@"value":image} identifier:MessageIdentifier_TrafficImage];
+    [[WCSession defaultSession] sendMessage:@{MessageIdentifierKey:MessageIdentifier_TrafficImage,@"value":imageData} replyHandler:nil errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"send traffic image error:%@",error);
+    }];
+//    [self.wormhole passMessageObject:@{@"value":image} identifier:MessageIdentifier_TrafficImage];
 }
 
 #pragma mark - ReceiveMessage
+//使用消息block处理代理
+- (void)handleReceivedMsg:(NSDictionary<NSString *,id> *)message {
+    NSString *identifier = [message objectForKey:MessageIdentifierKey];
+    if ([identifier isEqualToString:MessageIdentifier_WatchStopNavi]) {
+        [self receiveStopNaviMessage:message];
+    } else if ([identifier isEqualToString:MessageIdentifier_WatchCheck]) {
+        [self receiveCheckMessage:message];
+    }
+}
 
 - (void)receiveCheckMessage:(id)messageObject
 {
@@ -391,15 +407,8 @@
 {
     NSLog(@"playNaviSoundString:{%ld:%@}", (long)soundStringType, soundString);
     
-    if (soundStringType == AMapNaviSoundTypePassedReminder)
-    {
-        //用系统自带的声音做简单例子，播放其他提示音需要另外配置
-        AudioServicesPlaySystemSound(1009);
-    }
-    else
-    {
-        [[SpeechSynthesizer sharedSpeechSynthesizer] speakString:soundString];
-    }
+    [[SpeechSynthesizer sharedSpeechSynthesizer] speakString:soundString];
+    
 }
 
 #pragma mark - AMapNaviDriveDataRepresentable
